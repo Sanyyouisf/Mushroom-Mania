@@ -1,1 +1,5 @@
-console.log("js is working");
+app.run((FIREBASE_CONFIG)=>{
+	firebase.initializeApp(FIREBASE_CONFIG);
+});
+
+// app.controller("itemCtrl")
