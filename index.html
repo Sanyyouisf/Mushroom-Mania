@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Mushroom Mania</title>
-	<link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="./styles/main.css">
-
-
+    <title>Mushroom Mania</title>
+    <link rel="stylesheet" type="text/css" href="./lib/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
 </head>
+
 <body ng-app="MushroomApp">
-	<h2>Mushroom Mania</h2>
+    <h2>Mushroom Mania</h2>
+    <div ng-controller="itemCtrl"> 
+        <div class="row input">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="input-group">
+                    <span class="input-group-btn">
+		        		<button class="btn btn-default" type="button" ng-click="showSearch()">Go!</button>
+		      		</span>
+                    <input type="text" class="form-control" placeholder="Search for..." ng-model="searchText" ng-change="showSearch()">
+                </div>
+                <br>
+            <input type="radio" name="edible" ng-model="edible" value="false" ng-click="showSearch()"/> Poisonous
+            <input type="radio" name="edible" ng-model="edible" value="true" ng-click="showSearch()"> Non-poisonous
+            </div>
+        </div>
+        <div class="output col-md-8 panel-footer" ng-repeat="mushroom in mushrooms | filter:searchText | filter:edible" ng-show="showMushroomsList">
+	        	 {{mushroom.name}}
+        </div>	
+    </div>
 
-
-
-	<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
-	<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	<script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="javascripts/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="./javascripts/app.js"></script>
     <script type="text/javascript" src="./javascripts/AppConstant.js"></script>
-	<script type="text/javascript" src="./javascripts/main.js"></script>
-
+    <script type="text/javascript" src="./javascripts/main.js"></script>
 </body>
+
 </html>
