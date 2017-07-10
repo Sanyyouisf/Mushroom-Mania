@@ -1,6 +1,5 @@
 {
-    "mushrooms": {
-        
+    "mushrooms": {        
             "mushroom0": {
                 "name": "enoki",
                 "edible": true,

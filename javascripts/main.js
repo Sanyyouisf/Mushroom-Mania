@@ -17,7 +17,6 @@ app.controller("itemCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
                         mushroomz.push(itemCollection[key]);
                     });
                     resolve(mushroomz);
-                    console.log("mushroomz in getItemList function", mushroomz);
                 })
                 .catch((error) => {
                     reject(error);
@@ -39,7 +38,6 @@ app.controller("itemCtrl", ($http, $q, $scope, FIREBASE_CONFIG) => {
 
     $scope.showSearch = () => {
         $scope.showMushroomsList = true;
-        console.log(" you click showSearch");
     };
 
 
